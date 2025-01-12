@@ -1,0 +1,73 @@
+# addcomponent
+
+/addcomponent/node_modules
+/addcomponent/.vscode
+!/addcomponent/.vscode/settings.json
+!/addcomponent/.vscode/tasks.json
+!/addcomponent/.vscode/launch.json
+!/addcomponent/.vscode/extensions.json
+
+# ControlflowFor
+
+/ControlflowFor/node_modules
+/ControlflowFor/.vscode
+!/ControlflowFor/.vscode/settings.json
+!/ControlflowFor/.vscode/tasks.json
+!/ControlflowFor/.vscode/launch.json
+!/ControlflowFor/.vscode/extensions.json
+
+# ControlflowIf
+
+/ControlflowIf/node_modules
+/ControlflowIf/.vscode
+!/ControlflowIf/.vscode/settings.json
+!/ControlflowIf/.vscode/tasks.json
+!/ControlflowIf/.vscode/launch.json
+!/ControlflowIf/.vscode/extensions.json
+
+# eventHandling
+
+/eventHandling/node_modules
+/eventHandling/.vscode
+!/eventHandling/.vscode/settings.json
+!/eventHandling/.vscode/tasks.json
+!/eventHandling/.vscode/launch.json
+!/eventHandling/.vscode/extensions.json
+
+# first-app
+
+/first-app/node_modules
+/first-app/.vscode
+!/first-app/.vscode/settings.json
+!/first-app/.vscode/tasks.json
+!/first-app/.vscode/launch.json
+!/first-app/.vscode/extensions.json
+
+# input
+
+/input/node_modules
+/input/.vscode
+!/input/.vscode/settings.json
+!/input/.vscode/tasks.json
+!/input/.vscode/launch.json
+!/input/.vscode/extensions.json
+
+# output
+
+/output/node_modules
+/output/.vscode
+!/output/.vscode/settings.json
+!/output/.vscode/tasks.json
+!/output/.vscode/launch.json
+!/output/.vscode/extensions.json
+
+
+# propertyBinding
+
+/addcomponent/node_modules
+/addcomponent/.vscode
+!/addcomponent/.vscode/settings.json
+!/addcomponent/.vscode/tasks.json
+!/addcomponent/.vscode/launch.json
+!/addcomponent/.vscode/extensions.json
+
