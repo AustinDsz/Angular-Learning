@@ -1,5 +1,11 @@
 # Angular
 
+## DashBoard
+
+A basic dashboard with different charts
+
+<img src="/dashboard_page.gif">
+
 ## Components in Angular
 
 Components are the foundational building blocks for any Angular application. Each component has three parts:
@@ -355,3 +361,81 @@ Deferrable views have a number of trigger options. Add a viewport trigger so the
 ```
 
 the comment content will display once it enters the viewport.
+
+## Routing
+
+Routing helps to navigate different to different pages
+
+```javascript
+
+// app.routes.ts
+// creating the route configuration
+import { Routes } from '@angular/router';
+import { AppComponent } from './app.component';
+import { ServicesComponent } from './services/services.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { HomepageComponent } from './homepage/homepage.component';
+
+
+export const routes: Routes = [
+  {
+    path: "",
+    title: 'Home Page',
+    component: HomepageComponent,
+  },
+  {
+    path: "services",
+    title: 'Service Page',
+    component: ServicesComponent,
+  },
+  {
+    path: "about",
+    title: 'About Page',
+    component: AboutComponent,
+  },
+  {
+    path: "contact",
+    title: 'Contact Page',
+    component: ContactComponent,
+  }
+];
+
+
+// app.config.ts
+// giving providerRouter method the object
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
+};
+
+
+// app.component.ts
+// setting routers and routerlink
+// routerOutlet displays content from the given route path component
+// routerLink provides link to navigate to the route pages
+
+import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterLink, RouterOutlet],
+  template: `
+        <ul>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/services">Services</a></li>
+          <li><a routerLink="/about">About</a></li>
+          <li><a routerLink="/contact">Contact</a></li>
+        </ul>
+        <router-outlet/>
+  `,
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'routing';
+}
+
+
+```
