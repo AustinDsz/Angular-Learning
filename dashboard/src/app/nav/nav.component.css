@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* {
+  font-family: 'Inter';
+}
+
+  /* Sidebar styles */
+  .navbar {
+    background-color: #f8f9fa;
+  }
+
+  .offcanvas {
+    max-width: 300px;
+  }
+
+  .dash-items {
+  display: flex;
+  align-items: center;
+  gap: 5;
+}
