@@ -173,3 +173,185 @@ export class AppComponent {
 
 
 ```
+
+## Event handling
+
+Events can be set using () syntax. The () should have event name when event is triggered it can call event handling methods by using ="methodName()" syntax.
+
+```javascript
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  template: `
+    <h1>{{ message }} {{count}}</h1>
+    <button (click)='buttonAction()'>Click here</button>
+  `,
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  message = ''
+  count = 0 ;
+
+  buttonAction() {
+    this.message = "Hello";
+    this.count += 1
+  }
+
+}
+
+```
+
+Here click is an event and buttonAction() is called when the event is triggered
+
+## Input
+
+using @input() syntax we can pass data from parent to child, this is similar to props in other frameworks.
+
+```javascript
+
+// app.component.ts
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { UserComponent } from "./user/user.component";
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, UserComponent],
+  template: '<app-user place="Bahamas"/>',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'input';
+}
+
+
+// user.component.ts
+
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-user',
+  imports: [],
+  template: `
+    <h1>I am going to {{ place }}.</h1>
+  `,
+  styleUrl: './user.component.css'
+})
+export class UserComponent {
+    @Input() place = ''
+}
+
+
+```
+
+## Output
+
+output can send data from child to parent, to do that we need three things
+
+1. @Output() decorator
+2. EventEmitter class
+3. $event object
+
+```javascript
+
+// child.component.ts
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  imports: [],
+  template: `
+    <h1>Bellow is a message, click the button</h1>
+    <button (click)="buttonAction()">Click Me</button>
+  `,
+  styleUrl: './child.component.css'
+})
+export class ChildComponent {
+  @Output() stringEvent = new EventEmitter<string>();
+
+  message = "Hello";
+  count = 0;
+
+  buttonAction()  {
+      this.stringEvent.emit(this.message +" "+ ++this.count)
+  }
+
+}
+
+// app.component.ts
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { ChildComponent } from "./child/child.component";
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, ChildComponent],
+  template: `<app-child (stringEvent)="datadisplay($event)"/>
+            <h1>{{ datas }}</h1>
+  `,
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'output';
+  datas='';
+
+  datadisplay(data: string) {
+    this.datas = data;
+  }
+}
+
+```
+
+## Deferrable views
+
+deferrable views allows to defer load contents of a webpage, means to load contents lately those content which are heavy or out of viewport
+
+```javascript
+
+
+@defer {
+  <comments />
+} @placeholder {
+  <p>Future comments</p>
+} @loading {
+  <p> Loading comments ...</p>
+}
+
+
+```
+
+@placeholder will display content before defer content has started loading.
+
+@loading will display content when the defer content is actively being fetched, but hasn't finished yet.
+
+Both @placeholder and @loading sections have optional parameters to prevent flickering from occurring when loading happens quickly. @placeholder has minimum and @loading has minimum and after. Add a minimum duration to the @loading block so it will be rendered for at least 2 seconds.
+
+```javascript
+
+@defer {
+  <comments />
+} @placeholder {
+  <p>Future comments</p>
+} @loading (minimum 2s) {
+  <p>Loading comments...</p>
+}
+
+```
+
+Deferrable views have a number of trigger options. Add a viewport trigger so the content will defer load once it enters the viewport.
+
+```javascript
+
+@defer (on viewport) {
+  <comments />
+}
+
+```
+
+the comment content will display once it enters the viewport.

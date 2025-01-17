@@ -71,3 +71,31 @@
 !/addcomponent/.vscode/launch.json
 !/addcomponent/.vscode/extensions.json
 
+# angualar-ag-charts
+
+/angualar-ag-charts/node_modules
+/angualar-ag-charts/.vscode
+!/angualar-ag-charts/.vscode/settings.json
+!/angualar-ag-charts/.vscode/tasks.json
+!/angualar-ag-charts/.vscode/launch.json
+!/angualar-ag-charts/.vscode/extensions.json
+
+# dashboard
+
+/dashboard/node_modules
+/dashboard/.vscode
+!/dashboard/.vscode/settings.json
+!/dashboard/.vscode/tasks.json
+!/dashboard/.vscode/launch.json
+!/dashboard/.vscode/extensions.json
+
+
+# routing
+
+/routing/node_modules
+/routing/.vscode
+!/routing/.vscode/settings.json
+!/routing/.vscode/tasks.json
+!/routing/.vscode/launch.json
+!/routing/.vscode/extensions.json
+
